@@ -1,0 +1,303 @@
+version: "3.1"
+intents:
+  - greeting
+  - morning
+  - afternoon
+  - evening
+  - night
+  - goodbye
+  - thanks
+  - no-response
+  - neutral-response
+  - about
+  - skill
+  - affirm
+  - deny
+  - creation
+  - name
+  - help
+  - sad
+  - stressed
+  - worthless
+  - depressed
+  - happy
+  - casual
+  - anxious
+  - not-talking
+  - sleep
+  - scared
+  - angry
+  - worried
+  - death
+  - hurt
+  - understand
+  - done
+  - suicide
+  - hate-you
+  - hate-me
+  - default
+  - jokes
+  - repeat
+  - wrong
+  - overwhelmed
+  - lonely
+  - stupid
+  - location
+  - something-else
+  - friends
+  - hopeless
+  - ask
+  - problem
+  - no-approach
+  - learn-more
+  - user-agree
+  - meditation
+  - user-meditation
+  - pandora-useful
+  - user-advice
+  - ask_about_mental_health
+  - ask_coping
+
+entities:
+  - mental_health_topic
+
+slots:
+  is_depressed:
+    type: bool
+    initial_value: false
+    influence_conversation: true
+    mappings:
+      - type: custom
+        action: action_get_sentiment
+
+  mental_health_topic_slot:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: mental_health_topic
+
+  last_emotion:
+    type: text
+    influence_conversation: false
+    mappings:
+     - type: custom
+       action: action_get_sentiment
+
+  #emotional_intent:
+    #type: text
+    #influence_conversation: false
+    #mappings: []
+
+responses:
+  #utter_low_confidence:
+  #- text: "I'm sorry, I didn't quite understand that. Could you rephrase?"
+  #- text: "I'm not sure what you mean. Can you say that in a different way?"
+  utter_lonely_response:
+  - text: "I am so sorry you are feeling lonely."
+  utter_greet:
+  - text: "Hello! How can I help you today?"
+  utter_overwhelmed_response:
+    - text: "I am so sorry you are feeling overwhelmed."
+  utter_morning:
+  - text: "Good morning to you too!"
+  utter_afternoon:
+  - text: "Good afternoon! What's on your mind?"
+  utter_evening:
+  - text: "Good evening! How was your day?"
+  utter_night:
+  - text: "Good night! Sleep well."
+  utter_goodbye:
+  - text: "Goodbye! Take care."
+  #utter_thanks:
+  #- text: "You're welcome!"
+  utter_no_response:
+  - text: "Okay, let me know if you change your mind."
+  utter_neutral_response:
+  - text: "I see. Let's talk if you feel like it."
+  utter_about:
+  - text: "I am a chatbot designed to provide support and information on mental health. You can call me 'Mindbot'."
+  utter_skill:
+  - text: "I can provide information, offer a listening ear, and share resources about mental health."
+  utter_creation:
+  - text: "I was created to help people who are going through tough times."
+  utter_name:
+  - text: "It's nice to meet you, I'm glad we can talk."
+  utter_help:
+  - text: "I'm here to help. What do you need assistance with?"
+  utter_hurt_response:
+  - text: "I am so sorry you are feeling hurt."
+  utter_hopeless_response:
+  - text: "I am so sorry you are feeling hopeless."
+  utter_sad_response:
+  - text: "I'm sorry to hear you're feeling sad. It's okay to feel this way. Would you like to talk about what's making you sad?"
+  - text: "I am so sorry you feel sad. Can you tell me what happened?"
+  - text: "It's okay to feel down sometimes. We can talk about it, if you want."
+  utter_stressed_response:
+  - text: "Stress is a heavy burden. It's important to find ways to cope."
+  utter_worthless_response:
+  - text: "Please know that your worth isn't defined by what you do or what others think. You have value just by being you."
+  utter_depressed_response:
+  - text: "I am sorry that you are feeling this way. It sounds like you are going through a really tough time."
+  utter_happy_response:
+  - text: "I'm so happy to hear that! That's wonderful news!"
+  utter_worried_response:
+  - text: "I am so sorry you are feeling this way."
+  utter_casual_response:
+  - text: "Okay, I understand."
+  utter_anxious_response:
+  - text: "Anxiety can be very overwhelming. Remember to take a deep breath."
+  utter_not_talking_response:
+  - text: "That's okay. I am here if you change your mind and want to talk."
+  utter_sleep:
+  - text: "Lack of sleep can affect your mental and physical health. It might be helpful to talk to a doctor about this. You deserve rest. Here are some additional sleep tips that might help you!"
+  utter_scared_response:
+  - text: "It's okay to feel scared. Try to identify what is making you feel this way. I am here with you."
+  utter_death_response:
+  - text: "I am so sorry for your loss. Losing someone you love is an incredibly difficult experience. Please take your time to grieve."
+  #utter_understand:
+  #- text: "You are right. I am a machine and I can't feel emotions the way a human can. But I can listen without judgment, and I will do my best to provide you with the information and support you need."
+  utter_misunderstood_response:
+  - text: "I'm sorry, I don't think I understand. Could you please rephrase that?"
+  utter_done:
+  - text: "I understand. Thank you for talking with me."
+  utter_suicide:
+  - text: "I’m really concerned about your safety. 💙
+        Please know that you’re not alone — help is available.
+        If you’re in immediate danger, please call your local emergency services.
+
+        In India, you can contact Snehi at 91-9582208181 or Aasra at 91-9820466726 for 24×7 confidential support.
+
+        If you’re outside India, you can find international hotlines at https://www.iasp.info/resources/Crisis_Centres/
+        "
+
+ # utter_suicidal_coping:
+  #  - text: "I’m really glad you’re open to trying something. 💙
+   #     Here’s one grounding technique you can try right now:
+   ##
+    #    • Look around and name 5 things you can see
+    #    • 4 things you can touch
+    #    • 3 things you can hear
+    ##    • 2 things you can smell
+     #   • 1 thing you can taste
+
+      #  This can help slow down overwhelming thoughts.
+      #  Would you like me to suggest another small calming activity?"
+    #- text: "You’re taking a positive step by trying this. 💙
+    #    Try the **deep breathing exercise**:
+    #
+    #    • Inhale slowly through your nose for 4 seconds
+     #   • Hold your breath for 4 seconds
+      #  • Exhale gently through your mouth for 6 seconds
+       # • Repeat 5 times
+#
+ #       This can reduce immediate stress.
+  #      Would you like another calming idea?"
+   # - text: "That’s a brave choice. 💙
+    #    Try this **5‑minute self‑soothing exercise**:
+     #
+      #  • Place your hand on your heart
+       # • Take slow breaths
+        #• Silently repeat: “I am safe. This feeling will pass.”  #
+
+       # This helps your nervous system calm down.
+       # Want me to share another small exercise?"
+
+    #- text: "I’m here with you. 💙
+    #    Sometimes a **sensory reset** can help:
+        
+     #   • Splash cool water on your face
+     #   • Rub your hands together to warm them
+     #   • Press your feet firmly into the floor and notice the ground supporting you
+
+      #  This can help anchor you in the present moment.
+      #  Would you like another technique?"
+
+  utter_hate_you:
+  - text: "I understand you might be feeling angry or frustrated. Please know I'm here to support you."
+  utter_hate_me:
+  - text: "Please know that I don't have the capacity to hate anyone. My purpose is to help you."
+  utter_default:
+  - text: "I'm sorry, I'm not sure how to respond to that. Could you please rephrase?"
+  utter_joke:
+  - text: "Why don't scientists trust atoms? Because they make up everything!"
+  utter_repeat_response:
+  - text: "I apologize if I repeated myself. I'm still learning."
+  utter_wrong_response:
+  - text: "I'm sorry, I seem to have misunderstood. Can you tell me more about what you mean?"
+  utter_stupid_response:
+  - text: "I'm sorry that you feel that way. I'm doing my best to assist you."
+  utter_location:
+  - text: "I don't have a physical location. I live on the internet."
+  #utter_something_else:
+  #- text: "Okay, what would you like to talk about instead?"
+  utter_friends_response:
+  - text: "I'm so sorry to hear you're feeling lonely. Friends are an important part of life. You deserve to have people who care about you."
+  utter_ask:
+  - text: "Of course, what would you like to ask?"
+  utter_problem:
+  - text: "I see. It sounds like you're going through a tough time with your exams. What is it about them that is stressing you out?"
+  utter_no_approach:
+  - text: "I understand. Exams can be a lot to handle."
+  #utter_learn_more:
+  #- text: "Great! What topic would you like to learn more about?"
+  utter_user_agree_response:
+  - text: "I'm glad you feel that way. Taking a break is so important for your well-being."
+  utter_meditation_response:
+  - text: "Meditation can be a great way to calm your mind and reduce stress. It involves focusing on your breath and being present in the moment."
+  utter_user_meditation:
+  - text: "I'm so happy that it helped you feel better! That's fantastic news."
+  utter_pandora_useful:
+  - text: "I'm glad I could be of help. I hope you continue to feel better."
+  utter_advice:
+  - text: "I can try to help you with some general advice. What is the situation?"
+  #utter_mental_health_info:
+  #- text: "That's a great goal! Mental health is just as important as physical health. I can help you with some facts."
+  utter_change_topic:
+  - text: "Okay, what would you like to talk about instead?"
+  utter_ask_meditation:
+    - text: "Would you like me to guide you through a meditation session?"
+  utter_positive_feedback:
+  - text: "I'm so glad I could help!"
+  utter_ask_provide_resources:
+  - text: "Would you like me to share some resources with you?"
+  utter_provide_resources:
+  - text: "Here are some resources that might be helpful:
+      - National Suicide Prevention Lifeline: 1-800-273-8255
+      - Crisis Text Line: Text HOME to 741741
+      - The Trevor Project: 1-866-488-7386"
+  utter_ask_for_further_help:
+  - text: "That's good to hear. Is there anything else I can help you with?"
+  #utter_provide_coping_mechanisms:
+   # - text: "Here are some coping mechanisms you can try: deep breathing, short walks, journaling, talking to a friend, or practicing mindfulness."
+  utter_you_are_welcome:
+    - text: "You're welcome! I'm glad I could help."
+  utter_angry_response:
+  - text: "Anger is natural. Let's try to focus on what you can control right now."
+  utter_ask_coping:
+  - text: " Would you like me to share some coping strategies?"
+  utter_listen_only:
+    - text: "I hear you. Take your time and share whatever you want."
+    - text: "I'm here to listen. Feel free to say whatever's on your mind."
+    - text: "It’s completely fine to just talk. I’m right here with you."
+    - text: "Thank you for opening up. I’m here for you."
+actions:
+  - action_get_sentiment
+  - action_provide_coping_mechanism
+  - action_learn_more
+  - action_provide_sleep_tips
+  - action_low_confidence
+  - provide_resources_form
+  - action_provide_resources
+  - action_provide_mental_health_fact
+  - action_set_emotional_intent
+  - action_end_conversation
+
+forms:
+  provide_resources_form:
+    required_slots:
+      - is_depressed
+
+session_config:
+  session_expiration_time_in_minutes: 60
+  carry_over_slots_to_new_session: true

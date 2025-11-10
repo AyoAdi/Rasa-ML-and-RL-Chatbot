@@ -1,0 +1,308 @@
+version: "3.1"
+stories:
+
+#- story: user feels stressed and asks for advice
+ # steps:
+ # - intent: stressed
+ # - action: action_get_sentiment
+ # - action: utter_stressed_response
+ # - intent: user-advice
+ # - action: utter_advice
+
+#- story: user expresses anxiety and asks for coping mechanism
+#  steps:
+#  - intent: anxious
+#  - action: action_get_sentiment
+#  - action: utter_anxious_response
+#  - intent: ask_coping #Updated this
+#  - action: action_provide_coping_mechanism
+
+#- story: user expresses depression and then agrees to help
+#  steps:
+#  - intent: depressed
+#  - action: action_get_sentiment
+#  - action: utter_depressed_response
+#  - intent: affirm
+#  - action: action_provide_resources
+#  - action: utter_goodbye
+
+#- story: user expresses depression and then denies help
+#  steps:
+#  - intent: depressed
+#  - action: action_get_sentiment
+#  - action: utter_depressed_response
+#  - intent: deny
+#  - action: utter_goodbye
+
+- story: user talks about grief
+  steps:
+  - intent: death
+  - action: action_get_sentiment
+  - action: utter_death_response
+
+- story: user expresses feeling scared
+  steps:
+  - intent: scared
+  - action: action_get_sentiment
+  - action: utter_scared_response
+  - action: utter_ask_coping
+  - intent: ask_coping
+  - action: action_provide_coping_mechanism
+  - intent: affirm
+  - action: utter_user_agree_response
+
+- story: user talks about loneliness and friends
+  steps:
+  - intent: friends
+  - action: action_get_sentiment
+  - action: utter_friends_response
+
+- story: user feels misunderstood and calls the bot a name
+  steps:
+  - intent: understand
+  - action: utter_misunderstood_response
+  - intent: stupid
+  - action: utter_stupid_response
+
+#- story: user feels a meditation was useful
+ # steps:
+  #- intent: meditation
+  #- action: utter_meditation_response
+  #- intent: user-meditation
+  #- action: utter_positive_feedback
+  #- intent: thanks
+  #- action: utter_thanks
+  #- action: utter_ask_for_further_help
+
+#- story: user asks a mental health question
+ # steps:
+  #- intent: ask_about_mental_health
+  #- action: action_provide_mental_health_fact
+
+- story: user asks for help and optionally requests resources
+  steps:
+  - intent: help
+  - action: utter_help
+  - action: utter_ask_provide_resources
+  - intent: affirm
+  - action: utter_provide_resources
+  - intent: deny
+  - action: utter_ask_for_further_help
+
+- story: user asks about sleep
+  steps:
+  - intent: sleep
+  - action: utter_sleep
+  - action: action_provide_sleep_tips
+  - intent: thanks
+  - action: utter_you_are_welcome
+
+#- story: user asks for coping strategies directly
+#  steps:
+#  - intent: ask_coping
+#  - action: action_provide_coping_mechanism
+#  - intent: affirm
+#  - action: utter_user_agree_response
+
+- story: user expresses sad emotions
+  steps:
+  - intent: sad
+  - action: action_get_sentiment
+  - action: utter_sad_response
+  - action: utter_ask_coping
+  - intent: ask_coping
+  - action: action_provide_coping_mechanism
+  - intent: affirm
+  - action: utter_user_agree_response
+
+- story: user expresses depressed emotions
+  steps:
+  - intent: depressed
+  - action: action_get_sentiment
+  - action: utter_depressed_response
+  - action: utter_ask_coping
+  - intent: ask_coping
+  - action: action_provide_coping_mechanism
+  - intent: affirm
+  - action: utter_user_agree_response
+
+- story: user expresses stressed emotions
+  steps:
+  - intent: stressed
+  - action: action_get_sentiment
+  - action: utter_stressed_response
+  - action: utter_ask_coping
+  - intent: ask_coping
+  - action: action_provide_coping_mechanism
+  - intent: affirm
+  - action: utter_user_agree_response
+
+#- story: user expresses anxious emotions
+#  steps:
+#  - intent: anxious
+#  - action: action_get_sentiment
+#  - action: utter_anxious_response
+#  - action: utter_ask_coping  # <-- CHANGED
+#  - intent: ask_coping
+#  - action: action_provide_coping_mechanism
+#  - intent: affirm
+#  - action: utter_user_agree_response
+
+- story: user expresses anxious emotions
+  steps:
+  - intent: anxious
+  - action: action_get_sentiment
+  - action: utter_anxious_response
+  - action: utter_ask_coping
+  - intent: affirm
+  - action: action_provide_coping_mechanism
+
+- story: user expresses lonely emotions and accepts coping
+  steps:
+  - intent: lonely
+  - action: action_get_sentiment
+  - action: utter_lonely_response
+  - action: utter_ask_coping
+  - intent: affirm
+  - action: action_provide_coping_mechanism
+
+- story: user expresses angry emotions and accepts coping
+  steps:
+  - intent: angry
+  - action: action_get_sentiment
+  - action: utter_angry_response
+  - action: utter_ask_coping
+  - intent: affirm
+  - action: action_provide_coping_mechanism
+
+- story: user expresses overwhelmed emotions and accepts coping
+  steps:
+  - intent: overwhelmed
+  - action: action_get_sentiment
+  - action: utter_overwhelmed_response
+  - action: utter_ask_coping
+  - intent: affirm
+  - action: action_provide_coping_mechanism
+
+- story: user expresses hurt emotions and accepts coping
+  steps:
+  - intent: hurt
+  - action: action_get_sentiment
+  - action: utter_hurt_response
+  - action: utter_ask_coping
+  - intent: affirm
+  - action: action_provide_coping_mechanism
+
+- story: user expresses hopeless emotions and accepts coping
+  steps:
+  - intent: hopeless
+  - action: action_get_sentiment
+  - action: utter_hopeless_response
+  - action: utter_ask_coping
+  - intent: affirm
+  - action: action_provide_coping_mechanism
+
+- story: user expresses worried emotions and accepts coping
+  steps:
+  - intent: worried
+  - action: action_get_sentiment
+  - action: utter_worried_response
+  - action: utter_ask_coping
+  - intent: affirm
+  - action: action_provide_coping_mechanism
+
+- story: user ends chat after gratitude
+  steps:
+  - intent: thanks
+  - action: utter_positive_feedback
+  - action: action_end_conversation
+
+- story: user declines coping for sad emotions
+  steps:
+  - intent: sad
+  - action: action_get_sentiment
+  - action: utter_sad_response
+  - action: utter_ask_coping
+  - intent: deny
+  - action: utter_listen_only
+
+- story: user declines coping for depressed emotions
+  steps:
+  - intent: depressed
+  - action: action_get_sentiment
+  - action: utter_depressed_response
+  - action: utter_ask_coping
+  - intent: deny
+  - action: utter_listen_only
+
+- story: user declines coping for stressed emotions
+  steps:
+  - intent: stressed
+  - action: action_get_sentiment
+  - action: utter_stressed_response
+  - action: utter_ask_coping
+  - intent: deny
+  - action: utter_listen_only
+
+- story: user declines coping for anxious emotions
+  steps:
+  - intent: anxious
+  - action: action_get_sentiment
+  - action: utter_anxious_response
+  - action: utter_ask_coping
+  - intent: deny
+  - action: utter_listen_only
+
+- story: user declines coping for lonely emotions
+  steps:
+  - intent: lonely
+  - action: action_get_sentiment
+  - action: utter_lonely_response
+  - action: utter_ask_coping
+  - intent: deny
+  - action: utter_listen_only
+
+- story: user declines coping for angry emotions
+  steps:
+  - intent: angry
+  - action: action_get_sentiment
+  - action: utter_angry_response
+  - action: utter_ask_coping
+  - intent: deny
+  - action: utter_listen_only
+
+- story: user declines coping for overwhelmed emotions
+  steps:
+  - intent: overwhelmed
+  - action: action_get_sentiment
+  - action: utter_overwhelmed_response
+  - action: utter_ask_coping
+  - intent: deny
+  - action: utter_listen_only
+
+- story: user declines coping for hurt emotions
+  steps:
+  - intent: hurt
+  - action: action_get_sentiment
+  - action: utter_hurt_response
+  - action: utter_ask_coping
+  - intent: deny
+  - action: utter_listen_only
+
+- story: user declines coping for hopeless emotions
+  steps:
+  - intent: hopeless
+  - action: action_get_sentiment
+  - action: utter_hopeless_response
+  - action: utter_ask_coping
+  - intent: deny
+  - action: utter_listen_only
+
+- story: user declines coping for worried emotions
+  steps:
+  - intent: worried
+  - action: action_get_sentiment
+  - action: utter_worried_response
+  - action: utter_ask_coping
+  - intent: deny
+  - action: utter_listen_only
