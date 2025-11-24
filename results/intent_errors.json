@@ -1,0 +1,26 @@
+[
+  {
+    "text": "Hey, how's it going?",
+    "intent": "greeting",
+    "intent_prediction": {
+      "name": "default",
+      "confidence": 0.5606745481491089
+    }
+  },
+  {
+    "text": "alright",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "casual",
+      "confidence": 0.5981216430664062
+    }
+  },
+  {
+    "text": "sounds good",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "casual",
+      "confidence": 0.8494952917098999
+    }
+  }
+]

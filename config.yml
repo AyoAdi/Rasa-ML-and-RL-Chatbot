@@ -1,0 +1,43 @@
+recipe: default.v1
+language: en
+
+# The NLU pipeline is responsible for understanding user messages.
+pipeline:
+- name: WhitespaceTokenizer
+# Use RegexFeaturizer to create features for patterns in the training data.
+- name: RegexFeaturizer
+- name: LexicalSyntacticFeaturizer
+# CountVectorsFeaturizer helps the model learn from word and character sequences.
+- name: CountVectorsFeaturizer
+- name: CountVectorsFeaturizer
+  analyzer: "char_wb"
+  min_ngram: 1
+  max_ngram: 4
+
+- name: DIETClassifier
+  epochs: 200
+  constrain_similarities: true
+- name: EntitySynonymMapper
+
+- name: ResponseSelector
+  epochs: 200
+  constrain_similarities: true
+
+policies:
+
+- name: MemoizationPolicy
+- name: RulePolicy
+  core_fallback_threshold: 0.3
+  core_fallback_action_name: "action_low_confidence"
+
+- name: TEDPolicy
+  max_history: 5
+  epochs: 200
+  constrain_similarities: true
+assistant_id: 20250901-164057-big-genre
+
+#- name: RLPolicy
+#  max_history: 5
+#  epochs: 800
+#  constrain_similarities: true
+#  assistant_id: FILL IT HERE
